@@ -23,15 +23,15 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
     }
 
     const updateVerde = () => {
-        let dia = budgetItem.fecha.substring(0,2);
-        let mes = budgetItem.fecha.substring(3,5);
-        let ano = budgetItem.fecha.substring(6,10);
-        if (!parseInt(dia) || !parseInt(mes) || !parseInt(ano) ||  budgetItem.fecha.length < 10) {
+        let dia = budgetItem.fecha.substring(0, 2);
+        let mes = budgetItem.fecha.substring(3, 5);
+        let ano = budgetItem.fecha.substring(6, 10);
+        if (!parseInt(dia) || !parseInt(mes) || !parseInt(ano) || budgetItem.fecha.length < 10) {
             Alert.alert("ERROR: Fecha introducida incorrecta")
-        }else{
-            if (budgetItem.precio == "" ||  budgetItem.descripcion == "") {
+        } else {
+            if (budgetItem.precio == "" || budgetItem.descripcion == "") {
                 Alert.alert("ERROR: Introduce todo los campos")
-            }else{
+            } else {
                 budgetItem.descripcion;
                 budgetItem.precio;
                 budgetItem.fecha;
@@ -44,20 +44,20 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
     }
 
     const updateRojo = () => {
-        let dia = budgetItem.fecha.substring(0,2);
-        let mes = budgetItem.fecha.substring(3,5);
-        let ano = budgetItem.fecha.substring(6,10);
-        if (!parseInt(dia) || !parseInt(mes) || !parseInt(ano) ||  budgetItem.fecha.length < 10) {
+        let dia = budgetItem.fecha.substring(0, 2);
+        let mes = budgetItem.fecha.substring(3, 5);
+        let ano = budgetItem.fecha.substring(6, 10);
+        if (!parseInt(dia) || !parseInt(mes) || !parseInt(ano) || budgetItem.fecha.length < 10) {
             Alert.alert("ERROR: Fecha introducida incorrecta")
-        }else{
-            if (budgetItem.precio == "" ||  budgetItem.descripcion == "") {
+        } else {
+            if (budgetItem.precio == "" || budgetItem.descripcion == "") {
                 Alert.alert("ERROR: Introduce todo los campos")
-            }else{
+            } else {
                 budgetItem.descripcion;
                 budgetItem.fecha;
                 if (budgetItem.precio < 0) {
                     budgetItem.precio = budgetItem.precio
-                }else {
+                } else {
                     budgetItem.precio = -budgetItem.precio;
                 }
                 setModalVisible(!modalVisible);
@@ -106,7 +106,7 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
                                 color='lightgrey'
                                 keyboardType="default"
                                 onChangeText={changeTextHandlerDate}
-                                value={ budgetItem.fecha}>
+                                value={budgetItem.fecha}>
                             </TextInput>
                         </View>
                         <View style={styles.budgetItems}>
@@ -130,26 +130,26 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
                 onRequestClose={() => {
                     setModalVisible2(!modalVisible2);
                 }}>
-                    <Pressable onPress={() => setModalVisible2(false)}>
-                        <View style={styles.container}>
-                            <View style={styles.userViewModal}>
-                                <Text style={styles.precioModal}>Importe : {budgetItem.precio} €</Text>
-                                <Text style={styles.descripcion}> Descripción : {budgetItem.descripcion}</Text>
-                                <Text style={styles.descripcion}> Fecha : {budgetItem.fecha}</Text>
-                            </View>
+                <Pressable onPress={() => setModalVisible2(false)}>
+                    <View style={styles.container}>
+                        <View style={styles.userViewModal}>
+                            <Text style={styles.precioModal}>Importe : {budgetItem.precio} €</Text>
+                            <Text style={styles.descripcion}> Descripción : {budgetItem.descripcion}</Text>
+                            <Text style={styles.descripcion}> Fecha : {budgetItem.fecha}</Text>
                         </View>
-                    </Pressable>
+                    </View>
+                </Pressable>
             </Modal>
 
             <Pressable onPress={() => setModalVisible2(true)}>
                 <View style={styles.userView}>
                     <Text style={styles.precio}>{budgetItem.precio} €</Text>
-                        <Pressable onPress={() => setModalVisible(true)}>
-                            <Image style={styles.imagenes} source={require('../assets/lapiz_goyo.png')} />
-                        </Pressable>
-                        <Pressable onPress={() => onbudgetRemove(id)}>
-                            <Image style={styles.imagenes} source={require('../assets/bausra_Goyo.png')} />
-                        </Pressable>
+                    <Pressable onPress={() => setModalVisible(true)}>
+                        <Image style={styles.imagenes} source={require('../assets/lapiz_goyo.png')} />
+                    </Pressable>
+                    <Pressable onPress={() => onbudgetRemove(id)}>
+                        <Image style={styles.imagenes} source={require('../assets/bausra_Goyo.png')} />
+                    </Pressable>
                 </View>
             </Pressable>
 
