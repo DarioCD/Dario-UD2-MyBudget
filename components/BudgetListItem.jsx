@@ -134,9 +134,12 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
                     <Pressable onPress={() => setModalVisible2(false)}>
                         <View style={styles.container}>
                             <View style={styles.userViewModal}>
-                                <Text style={styles.precioModal}>Importe : {budgetItem.precio} €</Text>
-                                <Text style={styles.descripcion}> Descripción : {budgetItem.descripcion}</Text>
-                                <Text style={styles.descripcion}> Fecha : {budgetItem.fecha}</Text>
+                                <Text style={styles.texto}> Importe</Text>
+                                <Text style={styles.descripcion}>{budgetItem.precio} €</Text>
+                                <Text style={styles.texto}>Descripción</Text>
+                                <Text style={styles.descripcion}>{budgetItem.descripcion}</Text>
+                                <Text  style={styles.texto}>Fecha</Text>
+                                <Text style={styles.fecha}>{budgetItem.fecha}</Text>
                             </View>
                         </View>
                     </Pressable>
@@ -220,8 +223,13 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     descripcion: {
-        marginTop: 10,
-        fontSize: 15
+        textAlign: 'center',
+        fontSize: 20
+    },
+    texto: {
+        textAlign: 'center',
+        fontSize: 30,
+        fontWeight: "bold",
     },
     budgetInput: {
         flexDirection: 'row',
@@ -256,7 +264,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         width: '80%',
-        height: 120,
+        height: 170,
         borderRadius: 5,
         padding: 10,
         borderWidth: 2,
@@ -266,8 +274,8 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         backgroundColor: '#9E9E9E'
     },
-    precioModal: {
-        fontSize: 30,
-        fontWeight: "bold",
+    fecha : {
+        fontStyle : 'italic',
+        fontSize: 20
     }
 });
