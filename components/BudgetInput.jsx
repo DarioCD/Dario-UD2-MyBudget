@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     porductInputs: {
+        width: "50%",
         padding: 9,
         backgroundColor: "#3E4144",
         borderRadius: 5,

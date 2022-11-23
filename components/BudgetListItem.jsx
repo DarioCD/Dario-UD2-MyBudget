@@ -130,15 +130,17 @@ const BudgetListItem = ({ id, budgetItem, budget, onbudgetRemove, setPrecioNuevo
                 onRequestClose={() => {
                     setModalVisible2(!modalVisible2);
                 }}>
-                <Pressable onPress={() => setModalVisible2(false)}>
-                    <View style={styles.container}>
-                        <View style={styles.userViewModal}>
-                            <Text style={styles.precioModal}>Importe : {budgetItem.precio} €</Text>
-                            <Text style={styles.descripcion}> Descripción : {budgetItem.descripcion}</Text>
-                            <Text style={styles.descripcion}> Fecha : {budgetItem.fecha}</Text>
+                <View style={styles.fondoModal}>
+                    <Pressable onPress={() => setModalVisible2(false)}>
+                        <View style={styles.container}>
+                            <View style={styles.userViewModal}>
+                                <Text style={styles.precioModal}>Importe : {budgetItem.precio} €</Text>
+                                <Text style={styles.descripcion}> Descripción : {budgetItem.descripcion}</Text>
+                                <Text style={styles.descripcion}> Fecha : {budgetItem.fecha}</Text>
+                            </View>
                         </View>
-                    </View>
-                </Pressable>
+                    </Pressable>
+                </View>
             </Modal>
 
             <Pressable onPress={() => setModalVisible2(true)}>
@@ -161,11 +163,14 @@ export default BudgetListItem
 
 
 const styles = StyleSheet.create({
+    fondoModal: {
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        height: '100%'
+    },
     container: {
         marginTop: 60,
         width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
         justifyContent: 'flex-start',
         flex: 1,
     },
@@ -210,6 +215,7 @@ const styles = StyleSheet.create({
         height: 50,
     },
     precio: {
+        width: "50%",
         fontSize: 30,
         fontWeight: "bold",
     },
